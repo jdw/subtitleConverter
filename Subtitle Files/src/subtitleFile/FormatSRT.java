@@ -96,7 +96,9 @@ public class FormatSRT implements TimedTextFileFormat {
 						String text = "";
 						while (!line.isEmpty()){
 							text+=line+"<br />";
-							line = br.readLine().trim();
+							line = br.readLine();
+							if (line == null) break;
+							line = line.trim();
 							lineCounter++;
 						}
 						caption.content = text;
@@ -109,8 +111,10 @@ public class FormatSRT implements TimedTextFileFormat {
 						tto.captions.put(key, caption);
 					}
 					//we go to next blank
-					while (!line.isEmpty()) {
-						line = br.readLine().trim();
+					while (line != null && !line.isEmpty()) {
+						line = br.readLine();
+						if (line == null) break;
+						line = line.trim();
 						lineCounter++;
 					}
 					caption = new Caption();
