@@ -3,7 +3,15 @@ package subtitleFile;
 public class Style {
 	
 	private static int styleCounter;
+	
+	/**
+	 * Default constructor
+	 */
+	public Style() {
+		
+	}
 
+	
 	/**
 	 * Constructor that receives a String to use a its identifier
 	 * 
@@ -32,6 +40,23 @@ public class Style {
 		
 	}
 
+	
+	/**
+	 * Deep copy constructor
+	 * @param s The original object
+	 */
+	public Style(Style s) {
+		this.iD = new String(s.iD);
+		this.font = new String(s.font);
+		this.fontSize = new String(s.fontSize);
+		this.color = new String(s.color);
+		this.backgroundColor = new String(s.backgroundColor);
+		this.textAlign = new String(s.textAlign);
+		this.italic = s.italic;
+		this.underline = s.underline;
+		this.bold = s.bold;
+	}
+	
 	/* ATTRIBUTES */
 	protected String iD;
 	protected String font;

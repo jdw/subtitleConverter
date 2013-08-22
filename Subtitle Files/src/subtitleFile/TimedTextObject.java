@@ -31,7 +31,25 @@ import java.util.TreeMap;
  *
  */
 public class TimedTextObject {
-	
+	/**
+	 * Deep copy constructor
+	 * @param tto The original object
+	 */
+	public TimedTextObject(TimedTextObject tto) {
+		this.title = new String(tto.title);
+		this.description = new String(tto.description);
+		this.copyrigth = new String(tto.copyrigth);
+		this.author = new String(tto.author);
+		this.fileName = new String(tto.fileName);
+		this.language = new String(tto.language);
+		this.styling = new Hashtable<String, Style>(tto.styling);
+		this.layout = new Hashtable<String, Region>(tto.layout);
+		this.captions = new TreeMap<Integer, Caption>(tto.captions);
+		this.warnings = new String(tto.warnings);
+		this.useASSInsteadOfSSA = tto.useASSInsteadOfSSA;
+		this.offset = tto.offset;
+		this.built = tto.built;
+	}
 	/*
 	 * Attributes
 	 * 

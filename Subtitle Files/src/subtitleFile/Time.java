@@ -1,6 +1,13 @@
 package subtitleFile;
 
 public class Time {
+	/**
+	 * Default constructor
+	 */
+	protected Time() {
+		this.mseconds = 0;
+	}
+	
 	
 	/**
 	 * Constructor to create a time object.
