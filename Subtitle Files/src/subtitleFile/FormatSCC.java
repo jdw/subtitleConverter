@@ -401,10 +401,10 @@ public class FormatSCC implements TimedTextFileFormat {
 				//captions overlap
 				newC.content+="<br />"+oldC.content;
 				//we add the time to the new line, and clear old caption so both can now appear
-				newC.start.mseconds-= -tto.offset + 1000/29.97;
+				newC.start.mseconds-=1000/29.97;
 				//we correct the frame delay (8080 8080)
 				line+=newC.start.getTime("hh:mm:ss:ff/29.97")+"\t942c 942c ";
-				newC.start.mseconds+= -tto.offset + 1000/29.97;
+				newC.start.mseconds+=1000/29.97;
 				//we clear the buffer and start new pop-on caption
 				line+= "94ae 94ae 9420 9420 ";
 				
@@ -412,16 +412,16 @@ public class FormatSCC implements TimedTextFileFormat {
 				//we clear the screen for new caption
 				line+=oldC.end.getTime("hh:mm:ss:ff/29.97")+"\t942c 942c\n\n";
 				//we add the time to the new line, we clear buffer and start new caption
-				newC.start.mseconds-=-tto.offset +1000/29.97;
+				newC.start.mseconds-=1000/29.97;
 				//we correct the frame delay (8080 8080)
 				line+=newC.start.getTime("hh:mm:ss:ff/29.97")+"\t94ae 94ae 9420 9420 ";
-				newC.start.mseconds+=-tto.offset +1000/29.97;
+				newC.start.mseconds+=1000/29.97;
 			} else {
 				//we add the time to the new line, we clear screen and buffer and start new caption
-				newC.start.mseconds-=-tto.offset +1000/29.97;
+				newC.start.mseconds-=1000/29.97;
 				//we correct the frame delay (8080 8080)
 				line+=newC.start.getTime("hh:mm:ss:ff/29.97")+"\t942c 942c 94ae 94ae 9420 9420 ";
-				newC.start.mseconds+=-tto.offset +1000/29.97;
+				newC.start.mseconds+=1000/29.97;
 			}
 			
 			//we add the coded caption text along with any styles to the off-screen buffer
